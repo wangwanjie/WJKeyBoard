@@ -1,0 +1,412 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		95BFA71122984BE400359D58 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BFA71022984BE400359D58 /* AppDelegate.m */; };
+		95BFA71422984BE400359D58 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BFA71322984BE400359D58 /* ViewController.m */; };
+		95BFA71922984BE500359D58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95BFA71822984BE500359D58 /* Assets.xcassets */; };
+		95BFA71C22984BE500359D58 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95BFA71A22984BE500359D58 /* LaunchScreen.storyboard */; };
+		95BFA71F22984BE500359D58 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BFA71E22984BE500359D58 /* main.m */; };
+		95BFA74022984BF900359D58 /* NSString+Size.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BFA73522984BF900359D58 /* NSString+Size.m */; };
+		95BFA74422984D3F00359D58 /* HDCommonButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BFA74222984D3F00359D58 /* HDCommonButton.m */; };
+		95BFA74922984DA600359D58 /* HDKeyBoardTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BFA74522984DA600359D58 /* HDKeyBoardTheme.m */; };
+		95BFA74A22984DA600359D58 /* HDKeyBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BFA74822984DA600359D58 /* HDKeyBoard.m */; };
+		95BFA75222984DC200359D58 /* WJFrameLayoutMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BFA74D22984DC200359D58 /* WJFrameLayoutMaker.m */; };
+		95BFA75322984DC200359D58 /* UIView+WJFrameLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BFA75022984DC200359D58 /* UIView+WJFrameLayout.m */; };
+		95BFA75722984E8000359D58 /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BFA75622984E8000359D58 /* UIImage+Color.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		95BFA70C22984BE400359D58 /* WJKeyBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WJKeyBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		95BFA70F22984BE400359D58 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		95BFA71022984BE400359D58 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		95BFA71222984BE400359D58 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		95BFA71322984BE400359D58 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		95BFA71822984BE500359D58 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		95BFA71B22984BE500359D58 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		95BFA71D22984BE500359D58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		95BFA71E22984BE500359D58 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		95BFA73422984BF900359D58 /* NSString+Size.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Size.h"; sourceTree = "<group>"; };
+		95BFA73522984BF900359D58 /* NSString+Size.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Size.m"; sourceTree = "<group>"; };
+		95BFA74222984D3F00359D58 /* HDCommonButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDCommonButton.m; sourceTree = "<group>"; };
+		95BFA74322984D3F00359D58 /* HDCommonButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDCommonButton.h; sourceTree = "<group>"; };
+		95BFA74522984DA600359D58 /* HDKeyBoardTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDKeyBoardTheme.m; sourceTree = "<group>"; };
+		95BFA74622984DA600359D58 /* HDKeyBoardTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDKeyBoardTheme.h; sourceTree = "<group>"; };
+		95BFA74722984DA600359D58 /* HDKeyBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDKeyBoard.h; sourceTree = "<group>"; };
+		95BFA74822984DA600359D58 /* HDKeyBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDKeyBoard.m; sourceTree = "<group>"; };
+		95BFA74C22984DC200359D58 /* UIView+WJFrameLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WJFrameLayout.h"; sourceTree = "<group>"; };
+		95BFA74D22984DC200359D58 /* WJFrameLayoutMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJFrameLayoutMaker.m; sourceTree = "<group>"; };
+		95BFA74E22984DC200359D58 /* WJFrameLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJFrameLayout.h; sourceTree = "<group>"; };
+		95BFA74F22984DC200359D58 /* WJFrameLayoutUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJFrameLayoutUtils.h; sourceTree = "<group>"; };
+		95BFA75022984DC200359D58 /* UIView+WJFrameLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WJFrameLayout.m"; sourceTree = "<group>"; };
+		95BFA75122984DC200359D58 /* WJFrameLayoutMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJFrameLayoutMaker.h; sourceTree = "<group>"; };
+		95BFA75422984DE900359D58 /* HDKeyBoardDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HDKeyBoardDefine.h; sourceTree = "<group>"; };
+		95BFA75522984E8000359D58 /* UIImage+Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Color.h"; sourceTree = "<group>"; };
+		95BFA75622984E8000359D58 /* UIImage+Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Color.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		95BFA70922984BE400359D58 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		95BFA70322984BE400359D58 = {
+			isa = PBXGroup;
+			children = (
+				95BFA70E22984BE400359D58 /* WJKeyBoard */,
+				95BFA70D22984BE400359D58 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		95BFA70D22984BE400359D58 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				95BFA70C22984BE400359D58 /* WJKeyBoard.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		95BFA70E22984BE400359D58 /* WJKeyBoard */ = {
+			isa = PBXGroup;
+			children = (
+				95BFA72D22984BF900359D58 /* Source */,
+				95BFA70F22984BE400359D58 /* AppDelegate.h */,
+				95BFA71022984BE400359D58 /* AppDelegate.m */,
+				95BFA71822984BE500359D58 /* Assets.xcassets */,
+				95BFA71D22984BE500359D58 /* Info.plist */,
+				95BFA71A22984BE500359D58 /* LaunchScreen.storyboard */,
+				95BFA71E22984BE500359D58 /* main.m */,
+				95BFA71222984BE400359D58 /* ViewController.h */,
+				95BFA71322984BE400359D58 /* ViewController.m */,
+			);
+			path = WJKeyBoard;
+			sourceTree = "<group>";
+		};
+		95BFA72D22984BF900359D58 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				95BFA74122984CD600359D58 /* Base */,
+				95BFA73322984BF900359D58 /* Category */,
+				95BFA74722984DA600359D58 /* HDKeyBoard.h */,
+				95BFA74822984DA600359D58 /* HDKeyBoard.m */,
+				95BFA74622984DA600359D58 /* HDKeyBoardTheme.h */,
+				95BFA74522984DA600359D58 /* HDKeyBoardTheme.m */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		95BFA73322984BF900359D58 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				95BFA73422984BF900359D58 /* NSString+Size.h */,
+				95BFA73522984BF900359D58 /* NSString+Size.m */,
+				95BFA75522984E8000359D58 /* UIImage+Color.h */,
+				95BFA75622984E8000359D58 /* UIImage+Color.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		95BFA74122984CD600359D58 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				95BFA74B22984DC200359D58 /* WJFrameLayout */,
+				95BFA74322984D3F00359D58 /* HDCommonButton.h */,
+				95BFA74222984D3F00359D58 /* HDCommonButton.m */,
+				95BFA75422984DE900359D58 /* HDKeyBoardDefine.h */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		95BFA74B22984DC200359D58 /* WJFrameLayout */ = {
+			isa = PBXGroup;
+			children = (
+				95BFA74C22984DC200359D58 /* UIView+WJFrameLayout.h */,
+				95BFA75022984DC200359D58 /* UIView+WJFrameLayout.m */,
+				95BFA74E22984DC200359D58 /* WJFrameLayout.h */,
+				95BFA75122984DC200359D58 /* WJFrameLayoutMaker.h */,
+				95BFA74D22984DC200359D58 /* WJFrameLayoutMaker.m */,
+				95BFA74F22984DC200359D58 /* WJFrameLayoutUtils.h */,
+			);
+			path = WJFrameLayout;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		95BFA70B22984BE400359D58 /* WJKeyBoard */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 95BFA72222984BE500359D58 /* Build configuration list for PBXNativeTarget "WJKeyBoard" */;
+			buildPhases = (
+				95BFA70822984BE400359D58 /* Sources */,
+				95BFA70922984BE400359D58 /* Frameworks */,
+				95BFA70A22984BE400359D58 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WJKeyBoard;
+			productName = WJKeyBoardTest;
+			productReference = 95BFA70C22984BE400359D58 /* WJKeyBoard.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		95BFA70422984BE400359D58 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = VanJay;
+				TargetAttributes = {
+					95BFA70B22984BE400359D58 = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+				};
+			};
+			buildConfigurationList = 95BFA70722984BE400359D58 /* Build configuration list for PBXProject "WJKeyBoard" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 95BFA70322984BE400359D58;
+			productRefGroup = 95BFA70D22984BE400359D58 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				95BFA70B22984BE400359D58 /* WJKeyBoard */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		95BFA70A22984BE400359D58 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95BFA71922984BE500359D58 /* Assets.xcassets in Resources */,
+				95BFA71C22984BE500359D58 /* LaunchScreen.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		95BFA70822984BE400359D58 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95BFA71122984BE400359D58 /* AppDelegate.m in Sources */,
+				95BFA74422984D3F00359D58 /* HDCommonButton.m in Sources */,
+				95BFA74A22984DA600359D58 /* HDKeyBoard.m in Sources */,
+				95BFA74922984DA600359D58 /* HDKeyBoardTheme.m in Sources */,
+				95BFA71F22984BE500359D58 /* main.m in Sources */,
+				95BFA74022984BF900359D58 /* NSString+Size.m in Sources */,
+				95BFA75722984E8000359D58 /* UIImage+Color.m in Sources */,
+				95BFA75322984DC200359D58 /* UIView+WJFrameLayout.m in Sources */,
+				95BFA71422984BE400359D58 /* ViewController.m in Sources */,
+				95BFA75222984DC200359D58 /* WJFrameLayoutMaker.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		95BFA71A22984BE500359D58 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				95BFA71B22984BE500359D58 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		95BFA72022984BE500359D58 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		95BFA72122984BE500359D58 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		95BFA72322984BE500359D58 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = AUM2E6FK73;
+				INFOPLIST_FILE = WJKeyBoard/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = cv.vanjay.WJKeyBoard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		95BFA72422984BE500359D58 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = AUM2E6FK73;
+				INFOPLIST_FILE = WJKeyBoard/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = cv.vanjay.WJKeyBoard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		95BFA70722984BE400359D58 /* Build configuration list for PBXProject "WJKeyBoard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				95BFA72022984BE500359D58 /* Debug */,
+				95BFA72122984BE500359D58 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		95BFA72222984BE500359D58 /* Build configuration list for PBXNativeTarget "WJKeyBoard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				95BFA72322984BE500359D58 /* Debug */,
+				95BFA72422984BE500359D58 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 95BFA70422984BE400359D58 /* Project object */;
+}

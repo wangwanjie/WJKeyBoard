@@ -89,6 +89,10 @@
         [_config addObject:@{@"desc": @"纯数字键盘",
                              @"kb": kb}];
 
+        kb = [HDKeyBoard keyboardWithType:HDKeyBoardTypeNumberPad isRandom:YES];
+        [_config addObject:@{@"desc": @"数字键盘数字随机",
+                             @"kb": kb}];
+
         kb = [HDKeyBoard keyboardWithType:HDKeyBoardTypeDecimalPad];
         [_config addObject:@{@"desc": @"小数键盘",
                              @"kb": kb}];

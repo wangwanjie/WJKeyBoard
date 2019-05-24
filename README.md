@@ -1,6 +1,6 @@
 # WJKeyBoard
 
-An iOS custom keyboard written in Objective-C. If you like, you can fork && custom and it, you can also custom a themeModel when initializing a keyboard.
+An iOS custom keyboard written in Objective-C. If you like, you can fork && custom it, you can also custom a themeModel when initializing a keyboard.
 
 # Effect
 

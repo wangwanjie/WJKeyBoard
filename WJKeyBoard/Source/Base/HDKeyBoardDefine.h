@@ -36,4 +36,7 @@
 /** 适配顶部状态栏高度 */
 #define kStatusBarH (iPhoneXSeries ? 44 : 20)
 
+/** iphoneX底部安全区域高度 */
+#define kiPhoneXSeriesSafeBottomHeight (iPhoneXSeries ? 34 : 0)
+
 #endif /* HDKeyBoardDefine_h */

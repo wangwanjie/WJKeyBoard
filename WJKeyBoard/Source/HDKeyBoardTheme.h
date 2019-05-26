@@ -1,9 +1,9 @@
 //
 //  HDKeyBoardTheme.h
-//  HDKeyBoard
+//  customer
 //
 //  Created by VanJay on 2019/5/18.
-//  Copyright © 2019 VanJay. All rights reserved.
+//  Copyright © 2019 chaos network technology. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -43,6 +43,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UIColor *bgColor;              ///< 背景颜色
 @property (nonatomic, strong) UIColor *highlightBgColor;     ///< 高亮背景颜色
 @property (nonatomic, strong) UIColor *selectedBgColor;      ///< 选中背景颜色
+@property (nonatomic, assign) BOOL isFunctional;             ///< 是否功能按钮
 
 @end
 
@@ -61,6 +62,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UIColor *buttonBgColor;                                ///< 按钮背景色
 @property (nonatomic, strong) UIColor *buttonSelectedBgColor;                        ///< 按钮选中时背景色
 @property (nonatomic, strong) UIColor *buttonHighlightBgColor;                       ///< 按钮高亮背景色
+@property (nonatomic, strong) UIColor *funcButtonBgColor;                            ///< 功能按钮背景色
+@property (nonatomic, strong) UIColor *funcButtonSelectedBgColor;                    ///< 功能按钮选中时背景色
+@property (nonatomic, strong) UIColor *funcButtonHighlightBgColor;                   ///< 功能按钮高亮背景色
 @property (nonatomic, strong) UIFont *digitalButtonFont;                             ///< 数字键盘字体
 @property (nonatomic, strong) UIFont *letterButtonFont;                              ///< 字母键盘字体
 @property (nonatomic, strong) UIColor *buttonTitleColor;                             ///< 按钮文字颜色
@@ -73,6 +77,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *enterpriseText;                                ///< 商业信息文字
 @property (nonatomic, copy) NSString *deleteButtonImage;                             ///< 删除按钮图片
 @property (nonatomic, copy) NSString *shiftButtonImage;                              ///< shift按钮图片
+@property (nonatomic, copy) NSString *shiftButtonSelectedImage;                      ///< shift按钮选中图片
 @property (nonatomic, copy) NSString *doneButtonName;                                ///< 完成按钮标题
 @property (nonatomic, strong) UIColor *doneButtonTitleColor;                         ///< 完成按钮标题颜色
 @property (nonatomic, strong) UIColor *doneButtonHighlightTitleColor;                ///< 完成按钮标题高亮颜色

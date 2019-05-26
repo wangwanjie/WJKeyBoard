@@ -1,9 +1,9 @@
 //
 //  HDKeyBoard.h
-//  HDKeyBoard
+//  customer
 //
 //  Created by VanJay on 2019/5/18.
-//  Copyright © 2019 VanJay. All rights reserved.
+//  Copyright © 2019 chaos network technology. All rights reserved.
 //
 
 #import "HDKeyBoardTheme.h"

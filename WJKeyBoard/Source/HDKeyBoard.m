@@ -1,9 +1,9 @@
 //
 //  HDKeyBoard.m
-//  HDKeyBoard
+//  customer
 //
 //  Created by VanJay on 2019/5/18.
-//  Copyright © 2019 VanJay. All rights reserved.
+//  Copyright © 2019 chaos network technology. All rights reserved.
 //
 
 #import "HDKeyBoard.h"
@@ -12,7 +12,7 @@
 #import "NSString+Size.h"
 #import "WJFrameLayout.h"
 
-#define kHDKeyBoardHeight kScreenWidth *(240 / 375.f)
+#define kHDKeyBoardHeight (kScreenWidth * (240 / 375.f) + kiPhoneXSeriesSafeBottomHeight)
 
 @interface HDKeyBoard ()
 @property (nonatomic, assign) HDKeyBoardType type;                                                           ///< 类型
@@ -107,7 +107,7 @@
     }];
 
     _containerView = [[UIView alloc] init];
-    _containerView.frame = CGRectMake(0, _enterpriseBtn.bottom, self.width, self.height - _enterpriseBtn.bottom);
+    _containerView.frame = CGRectMake(0, _enterpriseBtn.bottom, self.width, self.height - _enterpriseBtn.bottom - kiPhoneXSeriesSafeBottomHeight);
     [self addSubview:_containerView];
 
     switch (self.type) {
@@ -412,7 +412,7 @@
 
             button.frame = CGRectMake(x, y, buttonW, buttonH);
         } else if (i == self.asciiKeyBoardConfigArr.count - 1) {
-            // ABC
+            // abc
             [button wj_makeFrameLayout:^(WJFrameLayoutMaker *_Nonnull make) {
                 make.size.wj_equalTo(CGSizeMake(buttonH, buttonH));
                 make.top.wj_equalTo((buttonH + buttonVMargin) * 3);
@@ -556,6 +556,12 @@
 - (void)clickedShiftBtn:(HDKeyBoardButton *)button {
     button.selected = !button.isSelected;
 
+    if (button.isSelected) {
+        [button setImage:[UIImage imageNamed:self.theme.shiftButtonSelectedImage] forState:UIControlStateNormal];
+    } else {
+        [button setImage:[UIImage imageNamed:self.theme.shiftButtonImage] forState:UIControlStateNormal];
+    }
+
     for (HDKeyBoardButton *btn in self.containerView.subviews) {
         if (btn.model.type == HDKeyBoardButtonTypeLetter) {
             btn.model.isCapital = button.isSelected;
@@ -569,7 +575,7 @@
     CGPoint point = [self convertPoint:touchPoint toView:self.containerView];
     for (HDKeyBoardButton *button in self.containerView.subviews) {
         // 预览只对字母和特殊字符生效
-        if (self.type != HDKeyBoardTypeDecimalPad && (button.model.type == HDKeyBoardButtonTypeLetter || button.model.type == HDKeyBoardButtonTypeASCII)) {
+        if (button.model.type == HDKeyBoardButtonTypeLetter || button.model.type == HDKeyBoardButtonTypeASCII) {
             if (CGRectContainsPoint(button.frame, point)) {
                 [self addOrUpdatePopupViewForButton:button];
             }
@@ -598,7 +604,7 @@
 
     for (HDKeyBoardButton *button in self.containerView.subviews) {
         // 预览只对字母和特殊字符生效
-        if (self.type != HDKeyBoardTypeDecimalPad && (button.model.type == HDKeyBoardButtonTypeLetter || button.model.type == HDKeyBoardButtonTypeASCII)) {
+        if (button.model.type == HDKeyBoardButtonTypeLetter || button.model.type == HDKeyBoardButtonTypeASCII) {
             if (CGRectContainsPoint(button.frame, point)) {
                 [self addOrUpdatePopupViewForButton:button];
             }
@@ -688,6 +694,12 @@
         button.model.bgColor = self.theme.doneButtonBgColor;
         button.model.highlightBgColor = self.theme.doneButtonHighlightBgColor;
         button.model.selectedBgColor = self.theme.doneButtonHighlightBgColor;
+    } else if (button.model.isFunctional) {
+        button.model.titleColor = self.theme.buttonTitleColor;
+        button.model.highlightTitleColor = self.theme.buttonTitleHighlightColor;
+        button.model.bgColor = self.theme.funcButtonBgColor;
+        button.model.highlightBgColor = self.theme.funcButtonHighlightBgColor;
+        button.model.selectedBgColor = self.theme.funcButtonSelectedBgColor;
     } else {
         button.model.titleColor = self.theme.buttonTitleColor;
         button.model.highlightTitleColor = self.theme.buttonTitleHighlightColor;
@@ -760,7 +772,7 @@ static NSMutableArray *resortedArrayWithRandomSort(NSMutableArray *array) {
         }
 
         if (self.isNumberPadWithPoint) {
-            buttonModel = [HDKeyBoardButtonModel modelWithIsCapital:NO showText:@"." value:@"." type:HDKeyBoardButtonTypeASCII];
+            buttonModel = [HDKeyBoardButtonModel modelWithIsCapital:NO showText:@"." value:@"." type:HDKeyBoardButtonTypeDigital];
         } else {
             buttonModel = [HDKeyBoardButtonModel modelWithIsCapital:NO showText:@"" value:@"" type:HDKeyBoardButtonTypeNone];
         }
@@ -774,6 +786,7 @@ static NSMutableArray *resortedArrayWithRandomSort(NSMutableArray *array) {
         }
 
         buttonModel = [HDKeyBoardButtonModel modelWithIsCapital:NO showText:@"" value:@"" type:HDKeyBoardButtonTypeDelete];
+        buttonModel.isFunctional = YES;
         [_numberPadConfigArr addObject:buttonModel];
     }
     return _numberPadConfigArr;
@@ -789,7 +802,8 @@ static NSMutableArray *resortedArrayWithRandomSort(NSMutableArray *array) {
             [_numberPadCanSwitchToLetterConfigArr addObject:buttonModel];
         }
 
-        buttonModel = [HDKeyBoardButtonModel modelWithIsCapital:NO showText:@"ABC" value:@"" type:HDKeyBoardButtonTypeToLetter];
+        buttonModel = [HDKeyBoardButtonModel modelWithIsCapital:NO showText:@"abc" value:@"" type:HDKeyBoardButtonTypeToLetter];
+        buttonModel.isFunctional = YES;
         [_numberPadCanSwitchToLetterConfigArr addObject:buttonModel];
 
         buttonModel = [HDKeyBoardButtonModel modelWithIsCapital:NO showText:@"0" value:@"0" type:HDKeyBoardButtonTypeDigital];
@@ -807,6 +821,7 @@ static NSMutableArray *resortedArrayWithRandomSort(NSMutableArray *array) {
         }
 
         buttonModel = [HDKeyBoardButtonModel modelWithIsCapital:NO showText:@"" value:@"" type:HDKeyBoardButtonTypeDelete];
+        buttonModel.isFunctional = YES;
         [_numberPadCanSwitchToLetterConfigArr addObject:buttonModel];
 
         buttonModel = [HDKeyBoardButtonModel modelWithIsCapital:NO showText:self.theme.doneButtonName value:@"" type:HDKeyBoardButtonTypeDone];
@@ -826,6 +841,7 @@ static NSMutableArray *resortedArrayWithRandomSort(NSMutableArray *array) {
         }
 
         buttonModel = [HDKeyBoardButtonModel modelWithIsCapital:NO showText:@"" value:@"" type:HDKeyBoardButtonTypeShift];
+        buttonModel.isFunctional = YES;
         [_letterKeyBoardConfigArr addObject:buttonModel];
 
         for (NSString *string in @[@"z", @"x", @"c", @"v", @"b", @"n", @"m"]) {
@@ -834,16 +850,19 @@ static NSMutableArray *resortedArrayWithRandomSort(NSMutableArray *array) {
         }
 
         buttonModel = [HDKeyBoardButtonModel modelWithIsCapital:NO showText:@"" value:@"" type:HDKeyBoardButtonTypeDelete];
+        buttonModel.isFunctional = YES;
         [_letterKeyBoardConfigArr addObject:buttonModel];
 
         buttonModel = [HDKeyBoardButtonModel modelWithIsCapital:NO showText:@"123" value:@"" type:HDKeyBoardButtonTypeToDigital];
+        buttonModel.isFunctional = YES;
         [_letterKeyBoardConfigArr addObject:buttonModel];
 
-        buttonModel = [HDKeyBoardButtonModel modelWithIsCapital:NO showText:@"空格" value:@" " type:HDKeyBoardButtonTypeBlank];
+        buttonModel = [HDKeyBoardButtonModel modelWithIsCapital:NO showText:@"" value:@" " type:HDKeyBoardButtonTypeBlank];
         [_letterKeyBoardConfigArr addObject:buttonModel];
 
         if (self.isLetterPadCanSwitchToASCII) {
             buttonModel = [HDKeyBoardButtonModel modelWithIsCapital:NO showText:@"#+" value:@"" type:HDKeyBoardButtonTypeToASCII];
+            buttonModel.isFunctional = YES;
             [_letterKeyBoardConfigArr addObject:buttonModel];
         }
 
@@ -863,9 +882,11 @@ static NSMutableArray *resortedArrayWithRandomSort(NSMutableArray *array) {
             [_asciiKeyBoardConfigArr addObject:buttonModel];
         }
         buttonModel = [HDKeyBoardButtonModel modelWithIsCapital:NO showText:@"" value:@"" type:HDKeyBoardButtonTypeDelete];
+        buttonModel.isFunctional = YES;
         [_asciiKeyBoardConfigArr addObject:buttonModel];
 
         buttonModel = [HDKeyBoardButtonModel modelWithIsCapital:NO showText:@"123" value:@"" type:HDKeyBoardButtonTypeToDigital];
+        buttonModel.isFunctional = YES;
         [_asciiKeyBoardConfigArr addObject:buttonModel];
 
         for (NSString *string in @[@",", @".", @"<", @">", @"€", @"£", @"¥"]) {
@@ -873,6 +894,7 @@ static NSMutableArray *resortedArrayWithRandomSort(NSMutableArray *array) {
             [_asciiKeyBoardConfigArr addObject:buttonModel];
         }
         buttonModel = [HDKeyBoardButtonModel modelWithIsCapital:NO showText:@"AB" value:@"" type:HDKeyBoardButtonTypeToLetter];
+        buttonModel.isFunctional = YES;
         [_asciiKeyBoardConfigArr addObject:buttonModel];
     }
     return _asciiKeyBoardConfigArr;

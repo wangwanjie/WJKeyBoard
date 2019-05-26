@@ -1,14 +1,15 @@
 //
 //  HDKeyBoardTheme.m
-//  HDKeyBoard
+//  customer
 //
 //  Created by VanJay on 2019/5/18.
-//  Copyright © 2019 VanJay. All rights reserved.
+//  Copyright © 2019 chaos network technology. All rights reserved.
 //
 
 #import "HDKeyBoardTheme.h"
 #import "HDKeyBoardDefine.h"
 #import "UIImage+Color.h"
+#import "WJFrameLayout.h"
 
 @implementation HDKeyBoardButtonModel
 + (instancetype)modelWithIsCapital:(BOOL)isCapital showText:(NSString *)showText value:(NSString *)value type:(HDKeyBoardButtonType)type {
@@ -27,6 +28,7 @@
 @end
 
 @interface HDKeyBoardButton ()
+@property (nonatomic, strong) UIView *redPointView;  ///< 红点
 @end
 
 @implementation HDKeyBoardButton
@@ -111,7 +113,26 @@
     } else {
         [self setBackgroundImage:[UIImage imageWithColor:self.model.bgColor] forState:UIControlStateNormal];
     }
+    if (self.model.type == HDKeyBoardButtonTypeShift) {
+        selected ? [self addRedPoint] : [self removeRedPoint];
+    }
 }
+
+- (void)addRedPoint {
+    _redPointView = [[UIView alloc] init];
+    _redPointView.backgroundColor = HexColor(0xf83460);
+    _redPointView.frame = CGRectMake(5, 5, kRealWidth(6), kRealWidth(6));
+    [self addSubview:_redPointView];
+    [_redPointView setRoundedCorners:UIRectCornerAllCorners radius:_redPointView.bounds.size.height * 0.5];
+}
+
+- (void)removeRedPoint {
+    if (self.redPointView) {
+        [self.redPointView removeFromSuperview];
+        self.redPointView = nil;
+    }
+}
+
 @end
 
 @implementation HDKeyBoardTheme
@@ -124,6 +145,9 @@
         self.buttonBgColor = WJColor(93, 102, 127, 0.4);
         self.buttonSelectedBgColor = WJColor(93, 102, 127, 1);
         self.buttonHighlightBgColor = WJColor(93, 102, 127, 1);
+        self.funcButtonBgColor = WJColor(93, 102, 127, 1);
+        self.funcButtonHighlightBgColor = WJColor(93, 102, 127, 0.4);
+        self.funcButtonSelectedBgColor = WJColor(93, 102, 127, 0.4);
         self.digitalButtonFont = [UIFont fontWithName:@"PingFang SC" size:23];
         self.letterButtonFont = [UIFont fontWithName:@"Helvetica Neue" size:22];
         self.buttonTitleColor = UIColor.whiteColor;
@@ -134,6 +158,7 @@
         self.enterpriseLabelColor = HexColor(0xadb6c8);
         self.deleteButtonImage = @"keyboard_delete";
         self.shiftButtonImage = @"keyboard_shift";
+        self.shiftButtonSelectedImage = @"keyboard_shift_selected";
         self.enterpriseText = @"- 安全键盘 -";
         self.doneButtonName = @"Done";
         self.doneButtonTitleColor = UIColor.whiteColor;

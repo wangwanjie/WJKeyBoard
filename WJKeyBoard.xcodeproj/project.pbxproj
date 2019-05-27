@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9512F26A229BF5EE0031C72A /* UIViewController+YJKeyBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 9512F269229BF5EE0031C72A /* UIViewController+YJKeyBoard.m */; };
 		95BFA71122984BE400359D58 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BFA71022984BE400359D58 /* AppDelegate.m */; };
 		95BFA71422984BE400359D58 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BFA71322984BE400359D58 /* ViewController.m */; };
 		95BFA71922984BE500359D58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95BFA71822984BE500359D58 /* Assets.xcassets */; };
@@ -22,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9512F268229BF5EE0031C72A /* UIViewController+YJKeyBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+YJKeyBoard.h"; sourceTree = "<group>"; };
+		9512F269229BF5EE0031C72A /* UIViewController+YJKeyBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+YJKeyBoard.m"; sourceTree = "<group>"; };
 		95BFA70C22984BE400359D58 /* WJKeyBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WJKeyBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95BFA70F22984BE400359D58 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		95BFA71022984BE400359D58 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -109,6 +112,8 @@
 		95BFA73322984BF900359D58 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				9512F268229BF5EE0031C72A /* UIViewController+YJKeyBoard.h */,
+				9512F269229BF5EE0031C72A /* UIViewController+YJKeyBoard.m */,
 				95BFA73422984BF900359D58 /* NSString+Size.h */,
 				95BFA73522984BF900359D58 /* NSString+Size.m */,
 				95BFA75522984E8000359D58 /* UIImage+Color.h */,
@@ -215,6 +220,7 @@
 				95BFA74A22984DA600359D58 /* WJKeyBoard.m in Sources */,
 				95BFA74922984DA600359D58 /* WJKeyBoardTheme.m in Sources */,
 				95BFA71F22984BE500359D58 /* main.m in Sources */,
+				9512F26A229BF5EE0031C72A /* UIViewController+YJKeyBoard.m in Sources */,
 				95BFA74022984BF900359D58 /* NSString+Size.m in Sources */,
 				95BFA75722984E8000359D58 /* UIImage+Color.m in Sources */,
 				95BFA75322984DC200359D58 /* UIView+WJFrameLayout.m in Sources */,

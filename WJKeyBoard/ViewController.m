@@ -1,6 +1,6 @@
 //
 //  ViewController.m
-//  WJKeyBoardTest
+//  WJKeyBoard
 //
 //  Created by VanJay on 2019/5/24.
 //  Copyright © 2019 VanJay. All rights reserved.
@@ -10,6 +10,7 @@
 #import "WJKeyBoard.h"
 #import "WJKeyBoardDefine.h"
 #import "WJFrameLayout.h"
+#import "UIViewController+YJKeyBoard.h"
 
 @interface ViewController ()
 @property (nonatomic, strong) UIScrollView *scrollView;                                ///< 容器
@@ -20,6 +21,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self yj_addKeyBoardHandle];
 
     self.title = @"自定义键盘";
 

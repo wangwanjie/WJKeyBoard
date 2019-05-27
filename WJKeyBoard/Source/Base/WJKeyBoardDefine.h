@@ -1,13 +1,13 @@
 //
-//  HDKeyBoardDefine.h
+//  WJKeyBoardDefine.h
 //  WJKeyBoardTest
 //
 //  Created by VanJay on 2019/5/25.
 //  Copyright © 2019 VanJay. All rights reserved.
 //
 
-#ifndef HDKeyBoardDefine_h
-#define HDKeyBoardDefine_h
+#ifndef WJKeyBoardDefine_h
+#define WJKeyBoardDefine_h
 
 #import <UIKit/UIKit.h>
 
@@ -39,4 +39,4 @@
 /** iphoneX底部安全区域高度 */
 #define kiPhoneXSeriesSafeBottomHeight (iPhoneXSeries ? 34 : 0)
 
-#endif /* HDKeyBoardDefine_h */
+#endif /* WJKeyBoardDefine_h */

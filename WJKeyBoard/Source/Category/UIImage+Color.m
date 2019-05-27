@@ -1,6 +1,6 @@
 //
 //  UIImage+Color.m
-//  HDKeyBoard
+//  WJKeyBoard
 //
 //  Created by VanJay on 2017/7/21.
 //  Copyright © 2017年 VanJay. All rights reserved.

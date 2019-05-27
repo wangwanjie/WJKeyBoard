@@ -1,23 +1,23 @@
 //
-//  HDCommonButton.m
-//  HDKeyBoard
+//  WJCommonButton.m
+//  WJKeyBoard
 //
 //  Created by VanJay on 2019/4/18.
 //  Copyright © 2019 VanJay. All rights reserved.
 //
 
-#import "HDCommonButton.h"
+#import "WJCommonButton.h"
 #import "WJFrameLayout.h"
 
-@interface HDCommonButton ()
+@interface WJCommonButton ()
 @property (nonatomic, strong) UIView *iconViewContainer;  ///< 图片 view 容器
 @end
 
-@implementation HDCommonButton
+@implementation WJCommonButton
 #pragma mark - life cycle
 - (void)commonInit {
     // 默认
-    _type = HDCommonButtonImageLLabelR;
+    _type = WJCommonButtonImageLLabelR;
     _textAlignment = NSTextAlignmentLeft;
     self.titleLabel.textAlignment = _textAlignment;
 
@@ -44,7 +44,7 @@
 }
 
 #pragma mark - getters and setters
-- (void)setType:(HDCommonButtonType)type {
+- (void)setType:(WJCommonButtonType)type {
     if (_type == type) return;
 
     _type = type;
@@ -104,7 +104,7 @@
     CGFloat w = self.width, h = self.height;
 
     switch (_type) {
-        case HDCommonButtonImageLLabelR: {
+        case WJCommonButtonImageLLabelR: {
             [self.imageView sizeToFit];
             self.imageView.left = _imageViewEdgeInsets.left;
             self.imageView.centerY = h * 0.5;
@@ -124,7 +124,7 @@
             break;
         }
 
-        case HDCommonButtonImageRLabelL: {
+        case WJCommonButtonImageRLabelL: {
             [self.imageView sizeToFit];
             self.imageView.left = w - self.imageView.width - _imageViewEdgeInsets.right;
             self.imageView.centerY = h * 0.5;
@@ -140,7 +140,7 @@
 
             break;
         }
-        case HDCommonButtonImageULabelD: {
+        case WJCommonButtonImageULabelD: {
             [self.titleLabel sizeToFit];
             CGFloat labelW = w - _labelEdgeInsets.left - _labelEdgeInsets.right;
             CGFloat labelH = self.titleLabel.height;
@@ -152,7 +152,7 @@
 
             break;
         }
-        case HDCommonButtonImageDLabelU: {
+        case WJCommonButtonImageDLabelU: {
             [self.titleLabel sizeToFit];
 
             CGFloat labelW = w - _labelEdgeInsets.left - _labelEdgeInsets.right;
@@ -171,13 +171,13 @@
     }
     // 设置图片容器 frame
     if (_iconViewContainer) {
-        if (_type == HDCommonButtonImageLLabelR) {
+        if (_type == WJCommonButtonImageLLabelR) {
             _iconViewContainer.frame = CGRectMake(0, 0, self.imageView.width + self.imageViewEdgeInsets.left + self.imageViewEdgeInsets.right, self.height);
-        } else if (_type == HDCommonButtonImageRLabelL) {
+        } else if (_type == WJCommonButtonImageRLabelL) {
             _iconViewContainer.frame = CGRectMake(self.imageView.left - self.imageViewEdgeInsets.left, 0, self.imageView.width + self.imageViewEdgeInsets.left + self.imageViewEdgeInsets.right, self.height);
-        } else if (_type == HDCommonButtonImageULabelD) {
+        } else if (_type == WJCommonButtonImageULabelD) {
             _iconViewContainer.frame = CGRectMake(0, 0, self.width, self.imageView.height + +self.imageViewEdgeInsets.top + self.imageViewEdgeInsets.bottom);
-        } else if (_type == HDCommonButtonImageDLabelU) {
+        } else if (_type == WJCommonButtonImageDLabelU) {
             _iconViewContainer.frame = CGRectMake(0, self.imageView.top - self.imageViewEdgeInsets.top, self.width, self.imageView.height + self.imageViewEdgeInsets.top + self.imageViewEdgeInsets.bottom);
         }
     }

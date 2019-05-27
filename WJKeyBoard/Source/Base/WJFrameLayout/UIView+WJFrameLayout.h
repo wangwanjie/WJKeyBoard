@@ -1,6 +1,6 @@
 //
 //  UIView+WJFrameLayout.h
-//  HDKeyBoard
+//  WJKeyBoard
 //
 //  Created by VanJay on 2019/4/20.
 //  Copyright © 2019 VanJay. All rights reserved.

@@ -7,8 +7,8 @@
 //
 
 #import "ViewController.h"
-#import "HDKeyBoard.h"
-#import "HDKeyBoardDefine.h"
+#import "WJKeyBoard.h"
+#import "WJKeyBoardDefine.h"
 #import "WJFrameLayout.h"
 
 @interface ViewController ()
@@ -35,7 +35,7 @@
 
     for (NSDictionary *dict in self.config) {
         NSString *desc = dict[@"desc"];
-        HDKeyBoard *kb = dict[@"kb"];
+        WJKeyBoard *kb = dict[@"kb"];
 
         UILabel *lb = [[UILabel alloc] init];
         lb.textColor = HexColor(0x5d667f);
@@ -85,31 +85,31 @@
     if (!_config) {
         _config = [NSMutableArray array];
 
-        HDKeyBoard *kb = [HDKeyBoard keyboardWithType:HDKeyBoardTypeNumberPad];
+        WJKeyBoard *kb = [WJKeyBoard keyboardWithType:WJKeyBoardTypeNumberPad];
         [_config addObject:@{@"desc": @"纯数字键盘",
                              @"kb": kb}];
 
-        kb = [HDKeyBoard keyboardWithType:HDKeyBoardTypeNumberPad isRandom:YES];
+        kb = [WJKeyBoard keyboardWithType:WJKeyBoardTypeNumberPad isRandom:YES];
         [_config addObject:@{@"desc": @"数字键盘数字随机",
                              @"kb": kb}];
 
-        kb = [HDKeyBoard keyboardWithType:HDKeyBoardTypeDecimalPad];
+        kb = [WJKeyBoard keyboardWithType:WJKeyBoardTypeDecimalPad];
         [_config addObject:@{@"desc": @"小数键盘",
                              @"kb": kb}];
 
-        kb = [HDKeyBoard keyboardWithType:HDKeyBoardTypeNumberPadCanSwitchToLetter];
+        kb = [WJKeyBoard keyboardWithType:WJKeyBoardTypeNumberPadCanSwitchToLetter];
         [_config addObject:@{@"desc": @"可以切换到字母键盘的数字键盘",
                              @"kb": kb}];
 
-        kb = [HDKeyBoard keyboardWithType:HDKeyBoardTypeASCII];
+        kb = [WJKeyBoard keyboardWithType:WJKeyBoardTypeASCII];
         [_config addObject:@{@"desc": @"特殊字符键盘",
                              @"kb": kb}];
 
-        kb = [HDKeyBoard keyboardWithType:HDKeyBoardTypeLetterCapable];
+        kb = [WJKeyBoard keyboardWithType:WJKeyBoardTypeLetterCapable];
         [_config addObject:@{@"desc": @"字母键盘",
                              @"kb": kb}];
 
-        kb = [HDKeyBoard keyboardWithType:HDKeyBoardTypeLetterCapableCanSwitchToASCII];
+        kb = [WJKeyBoard keyboardWithType:WJKeyBoardTypeLetterCapableCanSwitchToASCII];
         [_config addObject:@{@"desc": @"可以切换到特殊字符键盘的字母键盘",
                              @"kb": kb}];
     }

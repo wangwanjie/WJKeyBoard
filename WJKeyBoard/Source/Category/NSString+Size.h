@@ -1,6 +1,6 @@
 //
 //  NSString+Size.h
-//  HDKeyBoard
+//  WJKeyBoard
 //
 //  Created by VanJay on 2017/7/15.
 //  Copyright © 2017年 VanJay. All rights reserved.

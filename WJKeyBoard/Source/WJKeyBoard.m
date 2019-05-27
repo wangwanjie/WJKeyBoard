@@ -1,55 +1,55 @@
 //
-//  HDKeyBoard.m
+//  WJKeyBoard.m
 //  customer
 //
 //  Created by VanJay on 2019/5/18.
 //  Copyright © 2019 chaos network technology. All rights reserved.
 //
 
-#import "HDKeyBoard.h"
-#import "HDCommonButton.h"
-#import "HDKeyBoardDefine.h"
+#import "WJKeyBoard.h"
+#import "WJCommonButton.h"
+#import "WJKeyBoardDefine.h"
 #import "NSString+Size.h"
 #import "WJFrameLayout.h"
 
 #define kHDKeyBoardHeight (kScreenWidth * (240 / 375.f) + kiPhoneXSeriesSafeBottomHeight)
 
-@interface HDKeyBoard ()
-@property (nonatomic, assign) HDKeyBoardType type;                                                           ///< 类型
-@property (nonatomic, strong) HDCommonButton *enterpriseBtn;                                                 ///< 商业信息
-@property (nonatomic, strong) HDKeyBoardTheme *theme;                                                        ///< 主题
-@property (nonatomic, strong) NSMutableArray<HDKeyBoardButtonModel *> *numberPadConfigArr;                   ///< 数字键盘配置数组
-@property (nonatomic, strong) NSMutableArray<HDKeyBoardButtonModel *> *numberPadCanSwitchToLetterConfigArr;  ///< 可以切换到字母键盘的数字键盘
-@property (nonatomic, strong) NSMutableArray<HDKeyBoardButtonModel *> *letterKeyBoardConfigArr;              ///< 字母键盘
-@property (nonatomic, strong) NSMutableArray<HDKeyBoardButtonModel *> *asciiKeyBoardConfigArr;               ///< 特殊字符键盘
+@interface WJKeyBoard ()
+@property (nonatomic, assign) WJKeyBoardType type;                                                           ///< 类型
+@property (nonatomic, strong) WJCommonButton *enterpriseBtn;                                                 ///< 商业信息
+@property (nonatomic, strong) WJKeyBoardTheme *theme;                                                        ///< 主题
+@property (nonatomic, strong) NSMutableArray<WJKeyBoardButtonModel *> *numberPadConfigArr;                   ///< 数字键盘配置数组
+@property (nonatomic, strong) NSMutableArray<WJKeyBoardButtonModel *> *numberPadCanSwitchToLetterConfigArr;  ///< 可以切换到字母键盘的数字键盘
+@property (nonatomic, strong) NSMutableArray<WJKeyBoardButtonModel *> *letterKeyBoardConfigArr;              ///< 字母键盘
+@property (nonatomic, strong) NSMutableArray<WJKeyBoardButtonModel *> *asciiKeyBoardConfigArr;               ///< 特殊字符键盘
 @property (nonatomic, assign) BOOL isNumberPadWithPoint;                                                     ///< 数字键盘是否带小数点
 @property (nonatomic, assign) BOOL isRandom;                                                                 ///<  是否随机排序
 @property (nonatomic, assign) BOOL isCapital;                                                                ///< 是否大写，用于切换键盘时正确初始化字幕键盘
 @property (nonatomic, strong) UIView *containerView;                                                         ///< 容器，用于切换键盘方便
 @property (nonatomic, strong) UILabel *popupLabel;                                                           ///< 预览图
-@property (nonatomic, strong) HDKeyBoardButton *lastTouchedButton;                                           ///< 标记上次触摸的按钮，用于性能优化
+@property (nonatomic, strong) WJKeyBoardButton *lastTouchedButton;                                           ///< 标记上次触摸的按钮，用于性能优化
 @end
 
-@implementation HDKeyBoard
-+ (nonnull instancetype)keyboardWithType:(HDKeyBoardType)type {
-    return [[HDKeyBoard alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kHDKeyBoardHeight) withType:type theme:HDKeyBoardTheme.new isRandom:NO];
+@implementation WJKeyBoard
++ (nonnull instancetype)keyboardWithType:(WJKeyBoardType)type {
+    return [[WJKeyBoard alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kHDKeyBoardHeight) withType:type theme:WJKeyBoardTheme.new isRandom:NO];
 }
 
-+ (nonnull instancetype)keyboardWithType:(HDKeyBoardType)type theme:(HDKeyBoardTheme *)theme {
-    theme = theme ?: HDKeyBoardTheme.new;
-    return [[HDKeyBoard alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kHDKeyBoardHeight) withType:type theme:theme isRandom:NO];
++ (nonnull instancetype)keyboardWithType:(WJKeyBoardType)type theme:(WJKeyBoardTheme *)theme {
+    theme = theme ?: WJKeyBoardTheme.new;
+    return [[WJKeyBoard alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kHDKeyBoardHeight) withType:type theme:theme isRandom:NO];
 }
 
-+ (nonnull instancetype)keyboardWithType:(HDKeyBoardType)type isRandom:(BOOL)isRandom {
-    return [[HDKeyBoard alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kHDKeyBoardHeight) withType:type theme:HDKeyBoardTheme.new isRandom:isRandom];
++ (nonnull instancetype)keyboardWithType:(WJKeyBoardType)type isRandom:(BOOL)isRandom {
+    return [[WJKeyBoard alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kHDKeyBoardHeight) withType:type theme:WJKeyBoardTheme.new isRandom:isRandom];
 }
 
-+ (nonnull instancetype)keyboardWithType:(HDKeyBoardType)type theme:(HDKeyBoardTheme *)theme isRandom:(BOOL)isRandom {
-    theme = theme ?: HDKeyBoardTheme.new;
-    return [[HDKeyBoard alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kHDKeyBoardHeight) withType:type theme:theme isRandom:isRandom];
++ (nonnull instancetype)keyboardWithType:(WJKeyBoardType)type theme:(WJKeyBoardTheme *)theme isRandom:(BOOL)isRandom {
+    theme = theme ?: WJKeyBoardTheme.new;
+    return [[WJKeyBoard alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kHDKeyBoardHeight) withType:type theme:theme isRandom:isRandom];
 }
 
-- (id)initWithFrame:(CGRect)frame withType:(HDKeyBoardType)type theme:(HDKeyBoardTheme *)theme isRandom:(BOOL)isRandom {
+- (id)initWithFrame:(CGRect)frame withType:(WJKeyBoardType)type theme:(WJKeyBoardTheme *)theme isRandom:(BOOL)isRandom {
     self = [super initWithFrame:frame];
     if (self) {
         self.type = type;
@@ -64,8 +64,8 @@
     self = [super initWithCoder:aDecoder];
     if (self) {
         // 默认数字键盘
-        self.type = HDKeyBoardTypeNumberPad;
-        self.theme = [[HDKeyBoardTheme alloc] init];
+        self.type = WJKeyBoardTypeNumberPad;
+        self.theme = [[WJKeyBoardTheme alloc] init];
         [self setup];
     }
     return self;
@@ -74,12 +74,12 @@
 - (void)setup {
     self.backgroundColor = self.theme.backgroundColor;
 
-    _enterpriseBtn = [HDCommonButton buttonWithType:UIButtonTypeCustom];
+    _enterpriseBtn = [WJCommonButton buttonWithType:UIButtonTypeCustom];
     _enterpriseBtn.adjustsImageWhenDisabled = NO;
     _enterpriseBtn.enabled = NO;
     if (WJIsStringNotEmpty(self.theme.enterpriseLogoImage)) {
         [_enterpriseBtn setImage:[UIImage imageNamed:self.theme.enterpriseLogoImage] forState:UIControlStateNormal];
-        if (self.theme.enterpriseShowStyle == HDKeyBoardEnterpriseInfoShowTypeImageLeft) {
+        if (self.theme.enterpriseShowStyle == WJKeyBoardEnterpriseInfoShowTypeImageLeft) {
             _enterpriseBtn.imageViewEdgeInsets = UIEdgeInsetsMake(0, 0, 0, self.theme.enterpriseMargin);
         } else {
             _enterpriseBtn.imageViewEdgeInsets = UIEdgeInsetsMake(0, self.theme.enterpriseMargin, 0, 0);
@@ -112,32 +112,32 @@
     [self addSubview:_containerView];
 
     switch (self.type) {
-        case HDKeyBoardTypeNumberPad: {
+        case WJKeyBoardTypeNumberPad: {
             self.isNumberPadWithPoint = NO;
             [self setUpNumberPadKeyBoard];
         } break;
 
-        case HDKeyBoardTypeDecimalPad: {
+        case WJKeyBoardTypeDecimalPad: {
             self.isNumberPadWithPoint = YES;
             [self setUpNumberPadKeyBoard];
         } break;
 
-        case HDKeyBoardTypeNumberPadCanSwitchToLetter: {
+        case WJKeyBoardTypeNumberPadCanSwitchToLetter: {
             self.isNumberPadWithPoint = NO;
             [self setUpNumberPadCanSwitchToLetter];
         } break;
 
-        case HDKeyBoardTypeLetterCapable: {
+        case WJKeyBoardTypeLetterCapable: {
             self.isLetterPadCanSwitchToASCII = NO;
             [self setUpLetterKeyBoard];
         } break;
 
-        case HDKeyBoardTypeLetterCapableCanSwitchToASCII: {
+        case WJKeyBoardTypeLetterCapableCanSwitchToASCII: {
             self.isLetterPadCanSwitchToASCII = YES;
             [self setUpLetterKeyBoard];
         } break;
 
-        case HDKeyBoardTypeASCII: {
+        case WJKeyBoardTypeASCII: {
             self.isLetterPadCanSwitchToASCII = YES;
             [self setUpASCIIKeyBoard];
         } break;
@@ -157,15 +157,15 @@
     CGFloat buttonH = (self.containerView.height - (row - 1) * buttonVMargin - keyboardToBottom) / (CGFloat)row;
     [self.containerView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     for (short i = 0; i < self.numberPadConfigArr.count; i++) {
-        HDKeyBoardButtonModel *buttonModel = self.numberPadConfigArr[i];
-        HDKeyBoardButton *button = [HDKeyBoardButton keyBoardButtonWithModel:buttonModel];
-        if (buttonModel.type == HDKeyBoardButtonTypeDigital) {
+        WJKeyBoardButtonModel *buttonModel = self.numberPadConfigArr[i];
+        WJKeyBoardButton *button = [WJKeyBoardButton keyBoardButtonWithModel:buttonModel];
+        if (buttonModel.type == WJKeyBoardButtonTypeDigital) {
             [button setTitle:buttonModel.showText forState:UIControlStateNormal];
             button.titleLabel.font = self.theme.digitalButtonFont;
-        } else if (buttonModel.type == HDKeyBoardButtonTypeASCII) {
+        } else if (buttonModel.type == WJKeyBoardButtonTypeASCII) {
             [button setTitle:buttonModel.showText forState:UIControlStateNormal];
             button.titleLabel.font = self.theme.letterButtonFont;
-        } else if (buttonModel.type == HDKeyBoardButtonTypeDelete) {
+        } else if (buttonModel.type == WJKeyBoardButtonTypeDelete) {
             [button setImage:[UIImage imageNamed:self.theme.deleteButtonImage] forState:UIControlStateNormal];
         }
 
@@ -197,15 +197,15 @@
     CGFloat buttonH = (self.containerView.height - (row - 1) * buttonVMargin - keyboardToBottom) / (CGFloat)row;
     [self.containerView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     for (short i = 0; i < self.numberPadCanSwitchToLetterConfigArr.count; i++) {
-        HDKeyBoardButtonModel *buttonModel = self.numberPadCanSwitchToLetterConfigArr[i];
-        HDKeyBoardButton *button = [HDKeyBoardButton keyBoardButtonWithModel:buttonModel];
-        if (buttonModel.type == HDKeyBoardButtonTypeDigital) {
+        WJKeyBoardButtonModel *buttonModel = self.numberPadCanSwitchToLetterConfigArr[i];
+        WJKeyBoardButton *button = [WJKeyBoardButton keyBoardButtonWithModel:buttonModel];
+        if (buttonModel.type == WJKeyBoardButtonTypeDigital) {
             [button setTitle:buttonModel.showText forState:UIControlStateNormal];
             button.titleLabel.font = self.theme.digitalButtonFont;
-        } else if (buttonModel.type == HDKeyBoardButtonTypeASCII) {
+        } else if (buttonModel.type == WJKeyBoardButtonTypeASCII) {
             [button setTitle:buttonModel.showText forState:UIControlStateNormal];
             button.titleLabel.font = self.theme.letterButtonFont;
-        } else if (buttonModel.type == HDKeyBoardButtonTypeDelete) {
+        } else if (buttonModel.type == WJKeyBoardButtonTypeDelete) {
             [button setImage:[UIImage imageNamed:self.theme.deleteButtonImage] forState:UIControlStateNormal];
         }
 
@@ -253,14 +253,14 @@
 
     [self.containerView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     for (short i = 0; i < self.letterKeyBoardConfigArr.count; i++) {
-        HDKeyBoardButtonModel *buttonModel = self.letterKeyBoardConfigArr[i];
-        HDKeyBoardButton *button = [HDKeyBoardButton keyBoardButtonWithModel:buttonModel];
-        if (buttonModel.type == HDKeyBoardButtonTypeLetter) {
+        WJKeyBoardButtonModel *buttonModel = self.letterKeyBoardConfigArr[i];
+        WJKeyBoardButton *button = [WJKeyBoardButton keyBoardButtonWithModel:buttonModel];
+        if (buttonModel.type == WJKeyBoardButtonTypeLetter) {
             [button setTitle:buttonModel.showText forState:UIControlStateNormal];
             button.titleLabel.font = self.theme.letterButtonFont;
-        } else if (buttonModel.type == HDKeyBoardButtonTypeShift) {
+        } else if (buttonModel.type == WJKeyBoardButtonTypeShift) {
             [button setImage:[UIImage imageNamed:self.theme.shiftButtonImage] forState:UIControlStateNormal];
-        } else if (buttonModel.type == HDKeyBoardButtonTypeDelete) {
+        } else if (buttonModel.type == WJKeyBoardButtonTypeDelete) {
             [button setImage:[UIImage imageNamed:self.theme.deleteButtonImage] forState:UIControlStateNormal];
         }
 
@@ -363,12 +363,12 @@
 
     [self.containerView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     for (short i = 0; i < self.asciiKeyBoardConfigArr.count; i++) {
-        HDKeyBoardButtonModel *buttonModel = self.asciiKeyBoardConfigArr[i];
-        HDKeyBoardButton *button = [HDKeyBoardButton keyBoardButtonWithModel:buttonModel];
-        if (buttonModel.type == HDKeyBoardButtonTypeToASCII) {
+        WJKeyBoardButtonModel *buttonModel = self.asciiKeyBoardConfigArr[i];
+        WJKeyBoardButton *button = [WJKeyBoardButton keyBoardButtonWithModel:buttonModel];
+        if (buttonModel.type == WJKeyBoardButtonTypeToASCII) {
             [button setTitle:buttonModel.showText forState:UIControlStateNormal];
             button.titleLabel.font = self.theme.letterButtonFont;
-        } else if (buttonModel.type == HDKeyBoardButtonTypeDelete) {
+        } else if (buttonModel.type == WJKeyBoardButtonTypeDelete) {
             [button setImage:[UIImage imageNamed:self.theme.deleteButtonImage] forState:UIControlStateNormal];
         }
 
@@ -426,7 +426,7 @@
 
 #pragma mark - event response
 /** 普通输入 */
-- (void)inputAction:(HDKeyBoardButton *)btn {
+- (void)inputAction:(WJKeyBoardButton *)btn {
     NSString *value = btn.model.value;
     NSLog(@"安全键盘输入：%@", value);
     if (self.inputSource) {
@@ -479,7 +479,7 @@
 }
 
 /** 点击了删除 */
-- (void)deleteAction:(HDKeyBoardButton *)btn {
+- (void)deleteAction:(WJKeyBoardButton *)btn {
     if (self.inputSource) {
         if ([self.inputSource isKindOfClass:[UITextField class]]) {
             UITextField *tmp = (UITextField *)self.inputSource;
@@ -514,7 +514,7 @@
 }
 
 /** 点击了完成 */
-- (void)doneAction:(HDKeyBoardButton *)btn {
+- (void)doneAction:(WJKeyBoardButton *)btn {
     if (self.inputSource) {
         if ([self.inputSource isKindOfClass:[UITextField class]]) {
             UITextField *tmp = (UITextField *)self.inputSource;
@@ -554,7 +554,7 @@
 }
 
 /** 点击了切换大小写 */
-- (void)clickedShiftBtn:(HDKeyBoardButton *)button {
+- (void)clickedShiftBtn:(WJKeyBoardButton *)button {
     button.selected = !button.isSelected;
     self.isCapital = button.isSelected;
     if (button.isSelected) {
@@ -563,8 +563,8 @@
         [button setImage:[UIImage imageNamed:self.theme.shiftButtonImage] forState:UIControlStateNormal];
     }
 
-    for (HDKeyBoardButton *btn in self.containerView.subviews) {
-        if (btn.model.type == HDKeyBoardButtonTypeLetter) {
+    for (WJKeyBoardButton *btn in self.containerView.subviews) {
+        if (btn.model.type == WJKeyBoardButtonTypeLetter) {
             btn.model.isCapital = button.isSelected;
             [btn hd_updateTitle];
         }
@@ -574,18 +574,18 @@
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     CGPoint touchPoint = [[touches anyObject] locationInView:self];
     CGPoint point = [self convertPoint:touchPoint toView:self.containerView];
-    for (HDKeyBoardButton *button in self.containerView.subviews) {
+    for (WJKeyBoardButton *button in self.containerView.subviews) {
         // 预览只对字母和特殊字符生效
-        if (button.model.type == HDKeyBoardButtonTypeLetter || button.model.type == HDKeyBoardButtonTypeASCII) {
+        if (button.model.type == WJKeyBoardButtonTypeLetter || button.model.type == WJKeyBoardButtonTypeASCII) {
             if (CGRectContainsPoint(button.frame, point)) {
                 [self addOrUpdatePopupViewForButton:button];
             }
         }
-        if (button.model.type != HDKeyBoardButtonTypeShift && button.model.type != HDKeyBoardButtonTypeNone) {
+        if (button.model.type != WJKeyBoardButtonTypeShift && button.model.type != WJKeyBoardButtonTypeNone) {
             button.highlighted = NO;
         }
         if (CGRectContainsPoint(button.frame, point)) {
-            if (button.model.type != HDKeyBoardButtonTypeShift && button.model.type != HDKeyBoardButtonTypeNone) {
+            if (button.model.type != WJKeyBoardButtonTypeShift && button.model.type != WJKeyBoardButtonTypeNone) {
                 button.highlighted = YES;
             }
             self.lastTouchedButton = button;
@@ -603,19 +603,19 @@
 
     BOOL isTouchedInKeyBoardButton = NO;
 
-    for (HDKeyBoardButton *button in self.containerView.subviews) {
+    for (WJKeyBoardButton *button in self.containerView.subviews) {
         // 预览只对字母和特殊字符生效
-        if (button.model.type == HDKeyBoardButtonTypeLetter || button.model.type == HDKeyBoardButtonTypeASCII) {
+        if (button.model.type == WJKeyBoardButtonTypeLetter || button.model.type == WJKeyBoardButtonTypeASCII) {
             if (CGRectContainsPoint(button.frame, point)) {
                 [self addOrUpdatePopupViewForButton:button];
             }
         }
 
-        if (button.model.type != HDKeyBoardButtonTypeShift && button.model.type != HDKeyBoardButtonTypeNone) {
+        if (button.model.type != WJKeyBoardButtonTypeShift && button.model.type != WJKeyBoardButtonTypeNone) {
             button.highlighted = NO;
         }
         if (CGRectContainsPoint(button.frame, point)) {
-            if (button.model.type != HDKeyBoardButtonTypeShift && button.model.type != HDKeyBoardButtonTypeNone) {
+            if (button.model.type != WJKeyBoardButtonTypeShift && button.model.type != WJKeyBoardButtonTypeNone) {
                 button.highlighted = YES;
             }
             isTouchedInKeyBoardButton = YES;
@@ -631,15 +631,15 @@
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     CGPoint touchPoint = [[touches anyObject] locationInView:self];
     CGPoint point = [self convertPoint:touchPoint toView:self.containerView];
-    for (HDKeyBoardButton *button in self.containerView.subviews) {
-        if (button.model.type != HDKeyBoardButtonTypeShift && button.model.type != HDKeyBoardButtonTypeNone) {
+    for (WJKeyBoardButton *button in self.containerView.subviews) {
+        if (button.model.type != WJKeyBoardButtonTypeShift && button.model.type != WJKeyBoardButtonTypeNone) {
             button.highlighted = NO;
         }
 
         [self removePopupView];
 
         if (CGRectContainsPoint(button.frame, point)) {
-            if (button.model.type != HDKeyBoardButtonTypeNone) {
+            if (button.model.type != WJKeyBoardButtonTypeNone) {
                 [button sendActionsForControlEvents:UIControlEventTouchUpInside];
             }
         }
@@ -647,9 +647,9 @@
 }
 
 - (void)touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    for (HDKeyBoardButton *button in self.containerView.subviews) {
+    for (WJKeyBoardButton *button in self.containerView.subviews) {
 
-        if (button.model.type != HDKeyBoardButtonTypeShift && button.model.type != HDKeyBoardButtonTypeNone) {
+        if (button.model.type != WJKeyBoardButtonTypeShift && button.model.type != WJKeyBoardButtonTypeNone) {
             button.highlighted = NO;
         }
         [self removePopupView];
@@ -661,26 +661,26 @@
     return @[@1, @2, @3, @4, @5, @6, @7, @8, @9];
 }
 
-- (SEL)selectorFromModel:(HDKeyBoardButtonModel *)buttonModel {
+- (SEL)selectorFromModel:(WJKeyBoardButtonModel *)buttonModel {
     SEL selector = @selector(inputAction:);
-    if (buttonModel.type == HDKeyBoardButtonTypeDelete) {
+    if (buttonModel.type == WJKeyBoardButtonTypeDelete) {
         selector = @selector(deleteAction:);
-    } else if (buttonModel.type == HDKeyBoardButtonTypeToDigital) {
+    } else if (buttonModel.type == WJKeyBoardButtonTypeToDigital) {
         selector = @selector(setUpNumberPadCanSwitchToLetter);
-    } else if (buttonModel.type == HDKeyBoardButtonTypeToLetter) {
+    } else if (buttonModel.type == WJKeyBoardButtonTypeToLetter) {
         selector = @selector(setUpLetterKeyBoard);
-    } else if (buttonModel.type == HDKeyBoardButtonTypeShift) {
+    } else if (buttonModel.type == WJKeyBoardButtonTypeShift) {
         selector = @selector(clickedShiftBtn:);
-    } else if (buttonModel.type == HDKeyBoardButtonTypeDone) {
+    } else if (buttonModel.type == WJKeyBoardButtonTypeDone) {
         selector = @selector(doneAction:);
-    } else if (buttonModel.type == HDKeyBoardButtonTypeToASCII) {
+    } else if (buttonModel.type == WJKeyBoardButtonTypeToASCII) {
         selector = @selector(setUpASCIIKeyBoard);
     }
     return selector;
 }
 
 /** 这样设计是为了能在界面上滑动和离开时响应事件 */
-- (void)setButtonModelPropertyWithButton:(HDKeyBoardButton *)button {
+- (void)setButtonModelPropertyWithButton:(WJKeyBoardButton *)button {
 
     button.titleLabel.adjustsFontSizeToFitWidth = YES;
     button.titleLabel.minimumScaleFactor = 0.7;
@@ -689,7 +689,7 @@
     button.enabled = NO;
 
     // 只有完成按钮样式不一样
-    if (button.model.type == HDKeyBoardButtonTypeDone) {
+    if (button.model.type == WJKeyBoardButtonTypeDone) {
         button.model.titleColor = self.theme.doneButtonTitleColor;
         button.model.highlightTitleColor = self.theme.doneButtonHighlightTitleColor;
         button.model.bgColor = self.theme.doneButtonBgColor;
@@ -702,7 +702,7 @@
         button.model.highlightBgColor = self.theme.funcButtonHighlightBgColor;
         button.model.selectedBgColor = self.theme.funcButtonSelectedBgColor;
         
-        if (button.model.type == HDKeyBoardButtonTypeShift) {
+        if (button.model.type == WJKeyBoardButtonTypeShift) {
             button.selected = self.isCapital;
         }
     } else {
@@ -717,7 +717,7 @@
 }
 
 /** 添加或更新预览 View */
-- (void)addOrUpdatePopupViewForButton:(HDKeyBoardButton *)button {
+- (void)addOrUpdatePopupViewForButton:(WJKeyBoardButton *)button {
 
     if (self.disablePreviewViewEffect) return;
 
@@ -766,31 +766,31 @@ static NSMutableArray *resortedArrayWithRandomSort(NSMutableArray *array) {
 
 #pragma mark - lazy load
 /** @lazy 数字键盘配置 */
-- (NSMutableArray<HDKeyBoardButtonModel *> *)numberPadConfigArr {
+- (NSMutableArray<WJKeyBoardButtonModel *> *)numberPadConfigArr {
     if (!_numberPadConfigArr) {
         _numberPadConfigArr = [[NSMutableArray alloc] init];
 
-        HDKeyBoardButtonModel *buttonModel;
+        WJKeyBoardButtonModel *buttonModel;
         for (NSNumber *number in [self oneToNine]) {
-            buttonModel = [HDKeyBoardButtonModel modelWithIsCapital:NO showText:number.stringValue value:number.stringValue type:HDKeyBoardButtonTypeDigital];
+            buttonModel = [WJKeyBoardButtonModel modelWithIsCapital:NO showText:number.stringValue value:number.stringValue type:WJKeyBoardButtonTypeDigital];
             [_numberPadConfigArr addObject:buttonModel];
         }
 
         if (self.isNumberPadWithPoint) {
-            buttonModel = [HDKeyBoardButtonModel modelWithIsCapital:NO showText:@"." value:@"." type:HDKeyBoardButtonTypeDigital];
+            buttonModel = [WJKeyBoardButtonModel modelWithIsCapital:NO showText:@"." value:@"." type:WJKeyBoardButtonTypeDigital];
         } else {
-            buttonModel = [HDKeyBoardButtonModel modelWithIsCapital:NO showText:@"" value:@"" type:HDKeyBoardButtonTypeNone];
+            buttonModel = [WJKeyBoardButtonModel modelWithIsCapital:NO showText:@"" value:@"" type:WJKeyBoardButtonTypeNone];
         }
         [_numberPadConfigArr addObject:buttonModel];
 
-        buttonModel = [HDKeyBoardButtonModel modelWithIsCapital:NO showText:@"0" value:@"0" type:HDKeyBoardButtonTypeDigital];
+        buttonModel = [WJKeyBoardButtonModel modelWithIsCapital:NO showText:@"0" value:@"0" type:WJKeyBoardButtonTypeDigital];
         [_numberPadConfigArr addObject:buttonModel];
 
         if (self.isRandom) {
             _numberPadConfigArr = resortedArrayWithRandomSort(_numberPadConfigArr);
         }
 
-        buttonModel = [HDKeyBoardButtonModel modelWithIsCapital:NO showText:@"" value:@"" type:HDKeyBoardButtonTypeDelete];
+        buttonModel = [WJKeyBoardButtonModel modelWithIsCapital:NO showText:@"" value:@"" type:WJKeyBoardButtonTypeDelete];
         buttonModel.isFunctional = YES;
         [_numberPadConfigArr addObject:buttonModel];
     }
@@ -798,26 +798,26 @@ static NSMutableArray *resortedArrayWithRandomSort(NSMutableArray *array) {
 }
 
 /** @lazy 可以切换到字母键盘的数字键盘 */
-- (NSMutableArray<HDKeyBoardButtonModel *> *)numberPadCanSwitchToLetterConfigArr {
+- (NSMutableArray<WJKeyBoardButtonModel *> *)numberPadCanSwitchToLetterConfigArr {
     if (!_numberPadCanSwitchToLetterConfigArr) {
         _numberPadCanSwitchToLetterConfigArr = [[NSMutableArray alloc] init];
-        HDKeyBoardButtonModel *buttonModel;
+        WJKeyBoardButtonModel *buttonModel;
         for (NSNumber *number in [self oneToNine]) {
-            buttonModel = [HDKeyBoardButtonModel modelWithIsCapital:NO showText:number.stringValue value:number.stringValue type:HDKeyBoardButtonTypeDigital];
+            buttonModel = [WJKeyBoardButtonModel modelWithIsCapital:NO showText:number.stringValue value:number.stringValue type:WJKeyBoardButtonTypeDigital];
             [_numberPadCanSwitchToLetterConfigArr addObject:buttonModel];
         }
 
-        buttonModel = [HDKeyBoardButtonModel modelWithIsCapital:NO showText:@"abc" value:@"" type:HDKeyBoardButtonTypeToLetter];
+        buttonModel = [WJKeyBoardButtonModel modelWithIsCapital:NO showText:@"abc" value:@"" type:WJKeyBoardButtonTypeToLetter];
         buttonModel.isFunctional = YES;
         [_numberPadCanSwitchToLetterConfigArr addObject:buttonModel];
 
-        buttonModel = [HDKeyBoardButtonModel modelWithIsCapital:NO showText:@"0" value:@"0" type:HDKeyBoardButtonTypeDigital];
+        buttonModel = [WJKeyBoardButtonModel modelWithIsCapital:NO showText:@"0" value:@"0" type:WJKeyBoardButtonTypeDigital];
         [_numberPadCanSwitchToLetterConfigArr addObject:buttonModel];
 
         if (self.isNumberPadWithPoint) {
-            buttonModel = [HDKeyBoardButtonModel modelWithIsCapital:NO showText:@"." value:@"." type:HDKeyBoardButtonTypeASCII];
+            buttonModel = [WJKeyBoardButtonModel modelWithIsCapital:NO showText:@"." value:@"." type:WJKeyBoardButtonTypeASCII];
         } else {
-            buttonModel = [HDKeyBoardButtonModel modelWithIsCapital:NO showText:@"" value:@"" type:HDKeyBoardButtonTypeNone];
+            buttonModel = [WJKeyBoardButtonModel modelWithIsCapital:NO showText:@"" value:@"" type:WJKeyBoardButtonTypeNone];
         }
         [_numberPadCanSwitchToLetterConfigArr addObject:buttonModel];
 
@@ -825,80 +825,80 @@ static NSMutableArray *resortedArrayWithRandomSort(NSMutableArray *array) {
             _numberPadCanSwitchToLetterConfigArr = resortedArrayWithRandomSort(_numberPadCanSwitchToLetterConfigArr);
         }
 
-        buttonModel = [HDKeyBoardButtonModel modelWithIsCapital:NO showText:@"" value:@"" type:HDKeyBoardButtonTypeDelete];
+        buttonModel = [WJKeyBoardButtonModel modelWithIsCapital:NO showText:@"" value:@"" type:WJKeyBoardButtonTypeDelete];
         buttonModel.isFunctional = YES;
         [_numberPadCanSwitchToLetterConfigArr addObject:buttonModel];
 
-        buttonModel = [HDKeyBoardButtonModel modelWithIsCapital:NO showText:self.theme.doneButtonName value:@"" type:HDKeyBoardButtonTypeDone];
+        buttonModel = [WJKeyBoardButtonModel modelWithIsCapital:NO showText:self.theme.doneButtonName value:@"" type:WJKeyBoardButtonTypeDone];
         [_numberPadCanSwitchToLetterConfigArr addObject:buttonModel];
     }
     return _numberPadCanSwitchToLetterConfigArr;
 }
 
 /** 字母键盘 */
-- (NSMutableArray<HDKeyBoardButtonModel *> *)letterKeyBoardConfigArr {
+- (NSMutableArray<WJKeyBoardButtonModel *> *)letterKeyBoardConfigArr {
     if (!_letterKeyBoardConfigArr) {
         _letterKeyBoardConfigArr = [[NSMutableArray alloc] init];
-        HDKeyBoardButtonModel *buttonModel;
+        WJKeyBoardButtonModel *buttonModel;
         for (NSString *string in @[@"q", @"w", @"e", @"r", @"t", @"y", @"u", @"i", @"o", @"p", @"a", @"s", @"d", @"f", @"g", @"h", @"j", @"k", @"l"]) {
-            buttonModel = [HDKeyBoardButtonModel modelWithIsCapital:NO showText:string value:string type:HDKeyBoardButtonTypeLetter];
+            buttonModel = [WJKeyBoardButtonModel modelWithIsCapital:NO showText:string value:string type:WJKeyBoardButtonTypeLetter];
             [_letterKeyBoardConfigArr addObject:buttonModel];
         }
 
-        buttonModel = [HDKeyBoardButtonModel modelWithIsCapital:NO showText:@"" value:@"" type:HDKeyBoardButtonTypeShift];
+        buttonModel = [WJKeyBoardButtonModel modelWithIsCapital:NO showText:@"" value:@"" type:WJKeyBoardButtonTypeShift];
         buttonModel.isFunctional = YES;
         [_letterKeyBoardConfigArr addObject:buttonModel];
 
         for (NSString *string in @[@"z", @"x", @"c", @"v", @"b", @"n", @"m"]) {
-            buttonModel = [HDKeyBoardButtonModel modelWithIsCapital:NO showText:string value:string type:HDKeyBoardButtonTypeLetter];
+            buttonModel = [WJKeyBoardButtonModel modelWithIsCapital:NO showText:string value:string type:WJKeyBoardButtonTypeLetter];
             [_letterKeyBoardConfigArr addObject:buttonModel];
         }
 
-        buttonModel = [HDKeyBoardButtonModel modelWithIsCapital:NO showText:@"" value:@"" type:HDKeyBoardButtonTypeDelete];
+        buttonModel = [WJKeyBoardButtonModel modelWithIsCapital:NO showText:@"" value:@"" type:WJKeyBoardButtonTypeDelete];
         buttonModel.isFunctional = YES;
         [_letterKeyBoardConfigArr addObject:buttonModel];
 
-        buttonModel = [HDKeyBoardButtonModel modelWithIsCapital:NO showText:@"123" value:@"" type:HDKeyBoardButtonTypeToDigital];
+        buttonModel = [WJKeyBoardButtonModel modelWithIsCapital:NO showText:@"123" value:@"" type:WJKeyBoardButtonTypeToDigital];
         buttonModel.isFunctional = YES;
         [_letterKeyBoardConfigArr addObject:buttonModel];
 
-        buttonModel = [HDKeyBoardButtonModel modelWithIsCapital:NO showText:@"" value:@" " type:HDKeyBoardButtonTypeBlank];
+        buttonModel = [WJKeyBoardButtonModel modelWithIsCapital:NO showText:@"" value:@" " type:WJKeyBoardButtonTypeBlank];
         [_letterKeyBoardConfigArr addObject:buttonModel];
 
         if (self.isLetterPadCanSwitchToASCII) {
-            buttonModel = [HDKeyBoardButtonModel modelWithIsCapital:NO showText:@"#+" value:@"" type:HDKeyBoardButtonTypeToASCII];
+            buttonModel = [WJKeyBoardButtonModel modelWithIsCapital:NO showText:@"#+" value:@"" type:WJKeyBoardButtonTypeToASCII];
             buttonModel.isFunctional = YES;
             [_letterKeyBoardConfigArr addObject:buttonModel];
         }
 
-        buttonModel = [HDKeyBoardButtonModel modelWithIsCapital:NO showText:self.theme.doneButtonName value:@"" type:HDKeyBoardButtonTypeDone];
+        buttonModel = [WJKeyBoardButtonModel modelWithIsCapital:NO showText:self.theme.doneButtonName value:@"" type:WJKeyBoardButtonTypeDone];
         [_letterKeyBoardConfigArr addObject:buttonModel];
     }
     return _letterKeyBoardConfigArr;
 }
 
 /** @lazy 特殊字符键盘 */
-- (NSMutableArray<HDKeyBoardButtonModel *> *)asciiKeyBoardConfigArr {
+- (NSMutableArray<WJKeyBoardButtonModel *> *)asciiKeyBoardConfigArr {
     if (!_asciiKeyBoardConfigArr) {
         _asciiKeyBoardConfigArr = [[NSMutableArray alloc] init];
-        HDKeyBoardButtonModel *buttonModel;
+        WJKeyBoardButtonModel *buttonModel;
         for (NSString *string in @[@"!", @"@", @"#", @"$", @"%", @"^", @"&", @"*", @"(", @")", @"'", @"\"", @"=", @"_", @":", @";", @"?", @"~", @"|", @"·", @"+", @"-", @"\\", @"/", @"[", @"]", @"{", @"}"]) {
-            buttonModel = [HDKeyBoardButtonModel modelWithIsCapital:NO showText:string value:string type:HDKeyBoardButtonTypeLetter];
+            buttonModel = [WJKeyBoardButtonModel modelWithIsCapital:NO showText:string value:string type:WJKeyBoardButtonTypeLetter];
             [_asciiKeyBoardConfigArr addObject:buttonModel];
         }
-        buttonModel = [HDKeyBoardButtonModel modelWithIsCapital:NO showText:@"" value:@"" type:HDKeyBoardButtonTypeDelete];
+        buttonModel = [WJKeyBoardButtonModel modelWithIsCapital:NO showText:@"" value:@"" type:WJKeyBoardButtonTypeDelete];
         buttonModel.isFunctional = YES;
         [_asciiKeyBoardConfigArr addObject:buttonModel];
 
-        buttonModel = [HDKeyBoardButtonModel modelWithIsCapital:NO showText:@"123" value:@"" type:HDKeyBoardButtonTypeToDigital];
+        buttonModel = [WJKeyBoardButtonModel modelWithIsCapital:NO showText:@"123" value:@"" type:WJKeyBoardButtonTypeToDigital];
         buttonModel.isFunctional = YES;
         [_asciiKeyBoardConfigArr addObject:buttonModel];
 
         for (NSString *string in @[@",", @".", @"<", @">", @"€", @"£", @"¥"]) {
-            buttonModel = [HDKeyBoardButtonModel modelWithIsCapital:NO showText:string value:string type:HDKeyBoardButtonTypeLetter];
+            buttonModel = [WJKeyBoardButtonModel modelWithIsCapital:NO showText:string value:string type:WJKeyBoardButtonTypeLetter];
             [_asciiKeyBoardConfigArr addObject:buttonModel];
         }
-        buttonModel = [HDKeyBoardButtonModel modelWithIsCapital:NO showText:@"AB" value:@"" type:HDKeyBoardButtonTypeToLetter];
+        buttonModel = [WJKeyBoardButtonModel modelWithIsCapital:NO showText:@"AB" value:@"" type:WJKeyBoardButtonTypeToLetter];
         buttonModel.isFunctional = YES;
         [_asciiKeyBoardConfigArr addObject:buttonModel];
     }

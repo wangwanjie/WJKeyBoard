@@ -1,22 +1,22 @@
 //
-//  HDKeyBoardTheme.m
+//  WJKeyBoardTheme.m
 //  customer
 //
 //  Created by VanJay on 2019/5/18.
 //  Copyright © 2019 chaos network technology. All rights reserved.
 //
 
-#import "HDKeyBoardTheme.h"
-#import "HDKeyBoardDefine.h"
+#import "WJKeyBoardTheme.h"
+#import "WJKeyBoardDefine.h"
 #import "UIImage+Color.h"
 #import "WJFrameLayout.h"
 
-@implementation HDKeyBoardButtonModel
-+ (instancetype)modelWithIsCapital:(BOOL)isCapital showText:(NSString *)showText value:(NSString *)value type:(HDKeyBoardButtonType)type {
+@implementation WJKeyBoardButtonModel
++ (instancetype)modelWithIsCapital:(BOOL)isCapital showText:(NSString *)showText value:(NSString *)value type:(WJKeyBoardButtonType)type {
     return [[self alloc] initWithIsCapital:isCapital showText:showText value:value type:type];
 }
 
-- (instancetype)initWithIsCapital:(BOOL)isCapital showText:(NSString *)showText value:(NSString *)value type:(HDKeyBoardButtonType)type {
+- (instancetype)initWithIsCapital:(BOOL)isCapital showText:(NSString *)showText value:(NSString *)value type:(WJKeyBoardButtonType)type {
     if (self = [super init]) {
         self.isCapital = isCapital;
         self.showText = showText;
@@ -27,17 +27,17 @@
 }
 @end
 
-@interface HDKeyBoardButton ()
+@interface WJKeyBoardButton ()
 @property (nonatomic, strong) UIView *redPointView;  ///< 红点
 @end
 
-@implementation HDKeyBoardButton
+@implementation WJKeyBoardButton
 #pragma mark - life cycle
-+ (instancetype)keyBoardButtonWithModel:(HDKeyBoardButtonModel *)model {
++ (instancetype)keyBoardButtonWithModel:(WJKeyBoardButtonModel *)model {
     return [[self alloc] initKeyBoardButtonWithModel:model];
 }
 
-- (instancetype)initKeyBoardButtonWithModel:(HDKeyBoardButtonModel *)model {
+- (instancetype)initKeyBoardButtonWithModel:(WJKeyBoardButtonModel *)model {
     if (self = [super init]) {
         self.model = model;
 
@@ -69,7 +69,7 @@
 #pragma mark - public methods
 - (void)hd_updateTitle {
     if (self.model) {
-        if (self.model.type == HDKeyBoardButtonTypeLetter) {
+        if (self.model.type == WJKeyBoardButtonTypeLetter) {
             if (self.model.isCapital) {
                 [self setTitle:[self.model.showText uppercaseString] forState:UIControlStateNormal];
                 self.model.value = [self.model.value uppercaseString];
@@ -86,7 +86,7 @@
 }
 
 #pragma mark - getters and setters
-- (void)setModel:(HDKeyBoardButtonModel *)model {
+- (void)setModel:(WJKeyBoardButtonModel *)model {
     _model = model;
 
     [self hd_updateTitle];
@@ -113,7 +113,7 @@
     } else {
         [self setBackgroundImage:[UIImage imageWithColor:self.model.bgColor] forState:UIControlStateNormal];
     }
-    if (self.model.type == HDKeyBoardButtonTypeShift) {
+    if (self.model.type == WJKeyBoardButtonTypeShift) {
         selected ? [self addRedPoint] : [self removeRedPoint];
     }
 }
@@ -135,7 +135,7 @@
 
 @end
 
-@implementation HDKeyBoardTheme
+@implementation WJKeyBoardTheme
 
 - (instancetype)init {
     self = [super init];
@@ -153,7 +153,7 @@
         self.buttonTitleColor = UIColor.whiteColor;
         self.buttonTitleHighlightColor = UIColor.whiteColor;
         self.enterpriseLabelFont = [UIFont fontWithName:@"PingFang SC" size:15];
-        self.enterpriseShowStyle = HDKeyBoardEnterpriseInfoShowTypeImageLeft;
+        self.enterpriseShowStyle = WJKeyBoardEnterpriseInfoShowTypeImageLeft;
         self.enterpriseMargin = 10;
         self.enterpriseLabelColor = HexColor(0xadb6c8);
         self.deleteButtonImage = @"keyboard_delete";

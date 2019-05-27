@@ -24,6 +24,7 @@
 @property (nonatomic, strong) NSMutableArray<HDKeyBoardButtonModel *> *asciiKeyBoardConfigArr;               ///< 特殊字符键盘
 @property (nonatomic, assign) BOOL isNumberPadWithPoint;                                                     ///< 数字键盘是否带小数点
 @property (nonatomic, assign) BOOL isRandom;                                                                 ///<  是否随机排序
+@property (nonatomic, assign) BOOL isCapital;                                                                ///< 是否大写，用于切换键盘时正确初始化字幕键盘
 @property (nonatomic, strong) UIView *containerView;                                                         ///< 容器，用于切换键盘方便
 @property (nonatomic, strong) UILabel *popupLabel;                                                           ///< 预览图
 @property (nonatomic, strong) HDKeyBoardButton *lastTouchedButton;                                           ///< 标记上次触摸的按钮，用于性能优化
@@ -555,7 +556,7 @@
 /** 点击了切换大小写 */
 - (void)clickedShiftBtn:(HDKeyBoardButton *)button {
     button.selected = !button.isSelected;
-
+    self.isCapital = button.isSelected;
     if (button.isSelected) {
         [button setImage:[UIImage imageNamed:self.theme.shiftButtonSelectedImage] forState:UIControlStateNormal];
     } else {
@@ -700,6 +701,10 @@
         button.model.bgColor = self.theme.funcButtonBgColor;
         button.model.highlightBgColor = self.theme.funcButtonHighlightBgColor;
         button.model.selectedBgColor = self.theme.funcButtonSelectedBgColor;
+        
+        if (button.model.type == HDKeyBoardButtonTypeShift) {
+            button.selected = self.isCapital;
+        }
     } else {
         button.model.titleColor = self.theme.buttonTitleColor;
         button.model.highlightTitleColor = self.theme.buttonTitleHighlightColor;

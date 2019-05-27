@@ -8,7 +8,10 @@ An iOS custom keyboard written in Objective-C. If you like, you can fork && cust
 
 ## Run
 
-open `WJKeyBoard.xcodeproj` with Xcode
+```ObjC
+pod install
+open WJKeyBoard.xcworkspace -a /Applications/Xcode.app/
+```
 
 ## Requirements
 

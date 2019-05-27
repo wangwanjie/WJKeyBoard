@@ -17,12 +17,12 @@
 		95BFA74422984D3F00359D58 /* WJCommonButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BFA74222984D3F00359D58 /* WJCommonButton.m */; };
 		95BFA74922984DA600359D58 /* WJKeyBoardTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BFA74522984DA600359D58 /* WJKeyBoardTheme.m */; };
 		95BFA74A22984DA600359D58 /* WJKeyBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BFA74822984DA600359D58 /* WJKeyBoard.m */; };
-		95BFA75222984DC200359D58 /* WJFrameLayoutMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BFA74D22984DC200359D58 /* WJFrameLayoutMaker.m */; };
-		95BFA75322984DC200359D58 /* UIView+WJFrameLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BFA75022984DC200359D58 /* UIView+WJFrameLayout.m */; };
 		95BFA75722984E8000359D58 /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BFA75622984E8000359D58 /* UIImage+Color.m */; };
+		BF6CEEF27D47D9925AB358DF /* libPods-WJKeyBoard.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F707ED97D93E4A093E679A5 /* libPods-WJKeyBoard.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6F707ED97D93E4A093E679A5 /* libPods-WJKeyBoard.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WJKeyBoard.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9512F268229BF5EE0031C72A /* UIViewController+YJKeyBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+YJKeyBoard.h"; sourceTree = "<group>"; };
 		9512F269229BF5EE0031C72A /* UIViewController+YJKeyBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+YJKeyBoard.m"; sourceTree = "<group>"; };
 		95BFA70C22984BE400359D58 /* WJKeyBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WJKeyBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -42,15 +42,11 @@
 		95BFA74622984DA600359D58 /* WJKeyBoardTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJKeyBoardTheme.h; sourceTree = "<group>"; };
 		95BFA74722984DA600359D58 /* WJKeyBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJKeyBoard.h; sourceTree = "<group>"; };
 		95BFA74822984DA600359D58 /* WJKeyBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJKeyBoard.m; sourceTree = "<group>"; };
-		95BFA74C22984DC200359D58 /* UIView+WJFrameLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WJFrameLayout.h"; sourceTree = "<group>"; };
-		95BFA74D22984DC200359D58 /* WJFrameLayoutMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJFrameLayoutMaker.m; sourceTree = "<group>"; };
-		95BFA74E22984DC200359D58 /* WJFrameLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJFrameLayout.h; sourceTree = "<group>"; };
-		95BFA74F22984DC200359D58 /* WJFrameLayoutUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJFrameLayoutUtils.h; sourceTree = "<group>"; };
-		95BFA75022984DC200359D58 /* UIView+WJFrameLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WJFrameLayout.m"; sourceTree = "<group>"; };
-		95BFA75122984DC200359D58 /* WJFrameLayoutMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJFrameLayoutMaker.h; sourceTree = "<group>"; };
 		95BFA75422984DE900359D58 /* WJKeyBoardDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WJKeyBoardDefine.h; sourceTree = "<group>"; };
 		95BFA75522984E8000359D58 /* UIImage+Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Color.h"; sourceTree = "<group>"; };
 		95BFA75622984E8000359D58 /* UIImage+Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Color.m"; sourceTree = "<group>"; };
+		BE3F84E07D5DF50C9D64325C /* Pods-WJKeyBoard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WJKeyBoard.debug.xcconfig"; path = "Target Support Files/Pods-WJKeyBoard/Pods-WJKeyBoard.debug.xcconfig"; sourceTree = "<group>"; };
+		F84D890ACFB3DF221C565D92 /* Pods-WJKeyBoard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WJKeyBoard.release.xcconfig"; path = "Target Support Files/Pods-WJKeyBoard/Pods-WJKeyBoard.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,17 +54,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF6CEEF27D47D9925AB358DF /* libPods-WJKeyBoard.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		02DFFD9DFA120A17179C4C37 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BE3F84E07D5DF50C9D64325C /* Pods-WJKeyBoard.debug.xcconfig */,
+				F84D890ACFB3DF221C565D92 /* Pods-WJKeyBoard.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		95BFA70322984BE400359D58 = {
 			isa = PBXGroup;
 			children = (
 				95BFA70E22984BE400359D58 /* WJKeyBoard */,
 				95BFA70D22984BE400359D58 /* Products */,
+				02DFFD9DFA120A17179C4C37 /* Pods */,
+				FC7D2BAE54E0BCF5EEB4EBDE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -125,7 +133,6 @@
 		95BFA74122984CD600359D58 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				95BFA74B22984DC200359D58 /* WJFrameLayout */,
 				95BFA74322984D3F00359D58 /* WJCommonButton.h */,
 				95BFA74222984D3F00359D58 /* WJCommonButton.m */,
 				95BFA75422984DE900359D58 /* WJKeyBoardDefine.h */,
@@ -133,17 +140,12 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
-		95BFA74B22984DC200359D58 /* WJFrameLayout */ = {
+		FC7D2BAE54E0BCF5EEB4EBDE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				95BFA74C22984DC200359D58 /* UIView+WJFrameLayout.h */,
-				95BFA75022984DC200359D58 /* UIView+WJFrameLayout.m */,
-				95BFA74E22984DC200359D58 /* WJFrameLayout.h */,
-				95BFA75122984DC200359D58 /* WJFrameLayoutMaker.h */,
-				95BFA74D22984DC200359D58 /* WJFrameLayoutMaker.m */,
-				95BFA74F22984DC200359D58 /* WJFrameLayoutUtils.h */,
+				6F707ED97D93E4A093E679A5 /* libPods-WJKeyBoard.a */,
 			);
-			path = WJFrameLayout;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,6 +155,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 95BFA72222984BE500359D58 /* Build configuration list for PBXNativeTarget "WJKeyBoard" */;
 			buildPhases = (
+				43D1912B85F3A32BB0A2106E /* [CP] Check Pods Manifest.lock */,
 				95BFA70822984BE400359D58 /* Sources */,
 				95BFA70922984BE400359D58 /* Frameworks */,
 				95BFA70A22984BE400359D58 /* Resources */,
@@ -210,6 +213,31 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		43D1912B85F3A32BB0A2106E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WJKeyBoard-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		95BFA70822984BE400359D58 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -223,9 +251,7 @@
 				9512F26A229BF5EE0031C72A /* UIViewController+YJKeyBoard.m in Sources */,
 				95BFA74022984BF900359D58 /* NSString+Size.m in Sources */,
 				95BFA75722984E8000359D58 /* UIImage+Color.m in Sources */,
-				95BFA75322984DC200359D58 /* UIView+WJFrameLayout.m in Sources */,
 				95BFA71422984BE400359D58 /* ViewController.m in Sources */,
-				95BFA75222984DC200359D58 /* WJFrameLayoutMaker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,6 +383,7 @@
 		};
 		95BFA72322984BE500359D58 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BE3F84E07D5DF50C9D64325C /* Pods-WJKeyBoard.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -367,7 +394,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = cv.vanjay.WJKeyBoard;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.vanjay.WJKeyBoard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -375,6 +402,7 @@
 		};
 		95BFA72422984BE500359D58 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F84D890ACFB3DF221C565D92 /* Pods-WJKeyBoard.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -385,7 +413,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = cv.vanjay.WJKeyBoard;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.vanjay.WJKeyBoard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

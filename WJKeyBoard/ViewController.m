@@ -75,7 +75,7 @@
     }
 
     UIView *lastView = _scrollView.subviews.lastObject;
-    _scrollView.contentSize = CGSizeMake(self.view.width, lastView.bottom + 2 * margin);
+    _scrollView.contentSize = CGSizeMake(self.view.width, lastView.bottom + margin);
 }
 
 #pragma mark - event response
